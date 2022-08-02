@@ -6,6 +6,11 @@ export interface IUserToken {
   updated_at: Date;
 }
 
+export interface IUserSessionToken {
+  email: string;
+  password: string;
+}
+
 export interface IUserTokensRepository {
   findByToken(token: string);
   generate(user_id: string);

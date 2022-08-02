@@ -12,6 +12,7 @@ class CreateUsersService {
     @inject('HashProvider')
     private hashProvider: IHashProvider,
   ) {}
+
   async create({ name, email, password }: ICreateUser) {
     const usersExists = await this.usersRepository.findByEmail(email);
 
