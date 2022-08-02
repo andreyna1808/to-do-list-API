@@ -1,0 +1,187 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documentation",
+    "description": "This is an To Do API by Andreyna",
+    "version": "1.0.0",
+    "contact": {
+      "email": "andreyna.m.carvalho@gmail.com"
+    }
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Create a users",
+        "description": "Create a new users",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "chat": true,
+                  "username": "andreyna.m.carvalho@gmail.com"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "200": {
+            "description": "If Email already exists! return data email"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Users"],
+        "summary": "View all Users",
+        "description": "View all Users",
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": "string",
+                      "email": "string",
+                      "created_at": "Date"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/session": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Create a users",
+        "description": "Create a new users",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "chat": true,
+                  "username": "andreyna.m.carvalho@gmail.com"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "200": {
+            "description": "If Email already exists! return data email"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Users"],
+        "summary": "View all Users",
+        "description": "View all Users",
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": "string",
+                      "email": "string",
+                      "created_at": "Date"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/task": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Create a users",
+        "description": "Create a new users",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "chat": true,
+                  "username": "andreyna.m.carvalho@gmail.com"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "200": {
+            "description": "If Email already exists! return data email"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Users"],
+        "summary": "View all Users",
+        "description": "View all Users",
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": "string",
+                      "email": "string",
+                      "created_at": "Date"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
