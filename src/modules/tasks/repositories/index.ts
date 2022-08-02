@@ -17,8 +17,8 @@ class TaskRepository implements ITaskRepository {
     this.ormRepository = getRepository(TaskEntitie);
   }
 
-  async create(name: string) {
-    const task = this.ormRepository.create({ name });
+  async create(name: string, id: string) {
+    const task = this.ormRepository.create({ id, name });
     await this.ormRepository.save(task);
     return task;
   }

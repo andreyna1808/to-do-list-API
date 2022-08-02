@@ -7,6 +7,11 @@ export interface ITask {
   updated_at: Date;
 }
 
+export interface ICreateTask {
+  id: string;
+  name: string;
+}
+
 type SearchParams = {
   page: number;
   skip: number;
@@ -17,7 +22,7 @@ export interface ITaskRepository {
   findAll({ page, skip, take }: SearchParams);
   findByName(name: string);
   findById(id: string);
-  create(name: string);
+  create(name: string, id: string);
   save(task: ITask);
   remove(task: ITask);
 }
