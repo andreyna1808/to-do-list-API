@@ -1,15 +1,21 @@
 export interface ITask {
   id: string;
-  name: string;
-  completed: string;
+  title: string;
+  completed: boolean;
   task_id: string;
   created_at: Date;
   updated_at: Date;
 }
-
-export interface ICreateTask {
+export interface IUpdateTask {
   id: string;
-  name: string;
+  task_id: string;
+  title: string;
+  completed: boolean;
+}
+
+export interface ISearchParams {
+  page: number;
+  limit: number;
 }
 
 type SearchParams = {
@@ -18,11 +24,16 @@ type SearchParams = {
   take: number;
 };
 
+export interface ICreateTask {
+  title: string;
+  task_id: string;
+}
+
 export interface ITaskRepository {
   findAll({ page, skip, take }: SearchParams);
-  findByName(name: string);
+  findByTitle(title: string);
   findById(id: string);
-  create(name: string, id: string);
+  create(title: ICreateTask);
   save(task: ITask);
   remove(task: ITask);
 }

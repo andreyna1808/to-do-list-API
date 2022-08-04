@@ -2,7 +2,7 @@
 import { getRepository, Repository } from 'typeorm';
 
 import TaskEntitie from '../../../infra/entities/taskEntitie';
-import { ITaskRepository } from '../interface';
+import { ICreateTask, ITaskRepository } from '../interface';
 
 type SearchParams = {
   page: number;
@@ -17,8 +17,8 @@ class TaskRepository implements ITaskRepository {
     this.ormRepository = getRepository(TaskEntitie);
   }
 
-  async create(name: string, id: string) {
-    const task = this.ormRepository.create({ id, name });
+  async create({ title, task_id }: ICreateTask) {
+    const task = this.ormRepository.create({ title, task_id });
     await this.ormRepository.save(task);
     return task;
   }
@@ -49,9 +49,9 @@ class TaskRepository implements ITaskRepository {
     return result;
   }
 
-  async findByName(name: string) {
+  async findByTitle(title: string) {
     const task = await this.ormRepository.findOne({
-      name,
+      title,
     });
     return task;
   }

@@ -12,13 +12,13 @@ import { v4 as uuid } from 'uuid';
 
 import UserEntitie from './userEntitie';
 
-@Entity('tokens')
+@Entity('tasks')
 export default class TaskEntitie {
   @PrimaryColumn()
   id: string;
 
   @Column()
-  name: string;
+  title: string;
 
   @Column()
   completed: boolean;
