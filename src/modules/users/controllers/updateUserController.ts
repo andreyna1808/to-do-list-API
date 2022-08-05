@@ -11,13 +11,13 @@ class UpdateUsersControllers {
     const { name, email, password } = req.body;
     const { id } = req.params;
 
-    const updateProduct = await user.update({
+    const updateUsers = await user.update({
       id,
       name,
       email,
       password,
     });
-    return res.json(instanceToInstance(updateProduct));
+    return res.json(instanceToInstance(updateUsers));
   }
 }
 

@@ -11,8 +11,8 @@ class CreateTaskControllers {
     const { title } = req.body;
     const task_id = req.user.id;
 
-    const createProduct = await task.create({ title, task_id });
-    return res.status(201).json(instanceToInstance(createProduct));
+    const createTask = await task.create({ title, task_id });
+    return res.status(201).json(instanceToInstance(createTask));
   }
 }
 

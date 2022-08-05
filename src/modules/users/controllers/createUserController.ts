@@ -10,12 +10,12 @@ class CreateUsersControllers {
 
     const { name, email, password } = req.body;
 
-    const createProduct = await user.create({
+    const createUsers = await user.create({
       name,
       email,
       password,
     });
-    return res.status(201).json(instanceToInstance(createProduct));
+    return res.status(201).json(instanceToInstance(createUsers));
   }
 }
 

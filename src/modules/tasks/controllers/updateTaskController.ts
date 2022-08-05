@@ -12,13 +12,13 @@ class UpdateTaskControllers {
     const { id } = req.params;
     const task_id = req.user.id;
 
-    const updateProduct = await user.update({
+    const updateTask = await user.update({
       task_id,
       id,
       title,
       completed,
     });
-    return res.json(instanceToInstance(updateProduct));
+    return res.json(instanceToInstance(updateTask));
   }
 }
 

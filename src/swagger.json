@@ -12,21 +12,29 @@
     "/users": {
       "post": {
         "tags": ["Users"],
-        "summary": "Create a users",
-        "description": "Create a new users",
+        "summary": "Create a new user",
+        "description": "Create a new user",
+        "requestURL": "http://localhost:3333/api/v1/users",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+                  "name": {
+                    "type": "string"
+                  },
                   "email": {
+                    "type": "string"
+                  },
+                  "password": {
                     "type": "string"
                   }
                 },
                 "example": {
-                  "chat": true,
-                  "username": "andreyna.m.carvalho@gmail.com"
+                  "name": "Andreyna",
+                  "email": "andreyna@gmail.com",
+                  "password": "12345678"
                 }
               }
             }
@@ -36,15 +44,15 @@
           "201": {
             "description": "Created"
           },
-          "200": {
-            "description": "If Email already exists! return data email"
+          "409": {
+            "description": "There is already one user with this email"
           }
         }
       },
       "get": {
         "tags": ["Users"],
         "summary": "View all Users",
-        "description": "View all Users",
+        "description": "View all Users, necessary -> Authorization: Bearer <token>",
         "responses": {
           "200": {
             "description": "success",

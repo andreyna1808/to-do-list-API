@@ -20,7 +20,7 @@ class UpdateTaskService {
     }
 
     if (taskExists && title !== updateTask.title) {
-      throw new AppError('There is already one product with this name', 409);
+      throw new AppError('There is already one task with this name', 409);
     }
 
     updateTask.title = title;

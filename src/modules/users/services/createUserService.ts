@@ -17,7 +17,7 @@ class CreateUsersService {
     const usersExists = await this.usersRepository.findByEmail(email);
 
     if (usersExists) {
-      throw new AppError('There is already one product with this email', 409);
+      throw new AppError('There is already one user with this email', 409);
     }
 
     const hashedPassword = await this.hashProvider.generateHash(password);

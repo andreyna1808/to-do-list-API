@@ -18,7 +18,7 @@ class UpdateUsesService {
     }
 
     if (usersExists && email !== updateUser.email) {
-      throw new AppError('There is already one product with this email', 409);
+      throw new AppError('There is already one user with this email', 409);
     }
 
     updateUser.name = name;
