@@ -8,9 +8,9 @@ class CreateTaskControllers {
   async create(req: Request, res: Response) {
     const task = container.resolve(CreateTaskService);
 
-    const { title, task_id } = req.body;
+    const { title } = req.body;
     // const { task_id } = req.params;
-    // const task_id = req.params;
+    const task_id = req.user.id;
 
     console.log('title', task_id);
 
