@@ -68,6 +68,12 @@ class TaskRepository implements ITaskRepository {
     });
     return task;
   }
+  async findByUserId(task_id: string) {
+    const task = await this.ormRepository.findOne({
+      task_id,
+    });
+    return task;
+  }
 }
 
 export default TaskRepository;

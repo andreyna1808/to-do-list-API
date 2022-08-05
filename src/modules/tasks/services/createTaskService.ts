@@ -1,7 +1,12 @@
 import { inject, injectable } from 'tsyringe';
 
 import { AppError } from '../../../utils/appError';
-import { ICreateTask, ITaskRepository } from '../interface';
+import { ITaskRepository } from '../interface';
+
+interface ITest {
+  title: string;
+  task_id: string;
+}
 
 @injectable()
 class CreateTaskService {
@@ -10,14 +15,12 @@ class CreateTaskService {
     private taskRepository: ITaskRepository,
   ) {}
 
-  public async create({ task_id, title }: ICreateTask) {
+  public async create({ task_id, title }: ITest) {
     const taskExists = await this.taskRepository.findByTitle(title);
     const userId = await this.taskRepository.findById(task_id);
 
-    console.log('uSER IDDD EXISTES', userId);
-
     if (userId) {
-      throw new AppError('User not found', 404);
+      throw new AppError('There is already one task with this title', 409);
     }
 
     if (taskExists) {

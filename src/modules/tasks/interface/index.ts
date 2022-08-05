@@ -31,6 +31,7 @@ export interface ICreateTask {
 
 export interface ITaskRepository {
   find();
+  findByUserId(task_id: string);
   findAll({ page, skip, take }: SearchParams);
   findByTitle(title: string);
   findById(id: string);
