@@ -8,14 +8,14 @@ class UpdateTaskControllers {
   async update(req: Request, res: Response) {
     const user = container.resolve(UpdateTaskService);
 
-    const { name, completed } = req.body;
+    const { title, completed } = req.body;
     const { id } = req.params;
-    const idUser = req.user.id;
+    const task_id = req.user.id;
 
     const updateProduct = await user.update({
-      task_id: idUser,
+      task_id,
       id,
-      name,
+      title,
       completed,
     });
     return res.json(instanceToInstance(updateProduct));

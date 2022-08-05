@@ -29,7 +29,8 @@ class TaskRepository implements ITaskRepository {
   }
 
   async remove(task) {
-    await this.ormRepository.remove(task);
+    const tasks = await this.ormRepository.remove(task);
+    return tasks;
   }
 
   async findAll({ page, skip, take }: SearchParams) {
@@ -47,6 +48,11 @@ class TaskRepository implements ITaskRepository {
     };
 
     return result;
+  }
+
+  async find() {
+    const task = await this.ormRepository.find();
+    return task;
   }
 
   async findByTitle(title: string) {

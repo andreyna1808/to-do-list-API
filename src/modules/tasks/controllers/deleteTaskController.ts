@@ -7,9 +7,9 @@ class DeleteTaskControllers {
   async delete(req: Request, res: Response) {
     const task = container.resolve(DeleteTaskService);
     const { id } = req.params;
-    const idUser = req.user.id;
+    const task_id = req.user.id;
 
-    await task.delete(id, idUser);
+    await task.delete(id, task_id);
     return res.status(200).json({ message: 'user removed successfully' });
   }
 }
