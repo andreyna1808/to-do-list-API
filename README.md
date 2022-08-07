@@ -4,6 +4,9 @@
 
 ### DOC => https://documenter.getpostman.com/view/19297182/VUjLKS8R
 
+### BD_ENTIDADE RELACIONAMENTO
+![bd](./src/utils/img/bd_api.png)
+
 ### FUNCIONALIDADES
 
 1 - CRUD -> Criar usário, listar usuário (paginação), listar por id, editar por id, deletar por id, logar por id
