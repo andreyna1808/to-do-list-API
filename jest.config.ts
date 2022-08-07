@@ -2,7 +2,7 @@ export default {
   bail: true,
   clearMocks: true,
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>/src/models/**/services/**.ts'],
+  collectCoverageFrom: ['<rootDir>/src/modules/**/services/**.ts'],
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   coverageReporters: ['text-summary', 'lcov'],

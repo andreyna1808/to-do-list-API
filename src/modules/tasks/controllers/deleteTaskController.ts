@@ -10,7 +10,7 @@ class DeleteTaskControllers {
     const task_id = req.user.id;
 
     await task.delete(id, task_id);
-    return res.status(200).json({ message: 'user removed successfully' });
+    return res.status(200).json({ message: 'Task removed successfully' });
   }
 }
 

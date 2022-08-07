@@ -9,7 +9,7 @@ class DeleteUsersControllers {
     const { id } = req.params;
 
     await user.delete(id);
-    return res.status(200).json({ message: 'user removed successfully' });
+    return res.status(200).json({ message: 'User removed successfully' });
   }
 }
 
