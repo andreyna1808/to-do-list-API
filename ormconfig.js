@@ -1,10 +1,10 @@
 const developmentEnv = {
   type: "postgres",
   url: process.env.DATABASE_URL,
-  migrations: ["./src/database/migrations/*.ts"],
-  entities: ["./src/entities/*.ts"],
+  migrations: ["./src/infra/database/migrations/*.ts"],
+  entities: ["./src/infra/entities/*.ts"],
   cli: {
-    migrationsDir: "./src/database/migrations"
+    migrationsDir: "./src/infra/database/migrations"
   },
   ssl: false,
 }
@@ -12,10 +12,10 @@ const developmentEnv = {
 const productionEnv = {
   type: "postgres",
   url: process.env.DATABASE_URL,
-  migrations: ["./build/database/migrations/*.js"],
-  entities: ["./build/entities/*.js"],
+  migrations: ["./build/infra/database/migrations/*.js"],
+  entities: ["./build/infra/entities/*.js"],
   cli: {
-    migrationsDir: "./src/database/migrations"
+    migrationsDir: "./src/infra/database/migrations"
   },
   ssl: process.env.NODE_ENV === "production" ? {
     rejectUnauthorized: false
