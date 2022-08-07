@@ -4,6 +4,10 @@
 
 ### DOC => https://documenter.getpostman.com/view/19297182/VUjLKS8R
 
+ou
+
+### DOC => https://to-do-list-drica.herokuapp.com/api/v1/todo-doc
+
 ### BD_ENTIDADE RELACIONAMENTO
 ![bd](./src/utils/img/bd_api.png)
 

@@ -14,7 +14,7 @@
         "tags": ["Users"],
         "summary": "Create a new user",
         "description": "Create a new user",
-        "requestURL": "http://localhost:3333/api/v1/users",
+        "requestURL": "https://to-do-list-drica.herokuapp.com/api/v1/users",
         "requestBody": {
           "content": {
             "application/json": {
@@ -68,7 +68,7 @@
         "tags": ["Users"],
         "summary": "User by Id",
         "description": "Route for list User by Id",
-        "requestURL": "http://localhost:3333/api/v1/users/:id",
+        "requestURL": "https://to-do-list-drica.herokuapp.com/api/v1/users/:id",
         "responses": {
           "200": {
             "description": "Ok"
@@ -79,9 +79,6 @@
         "tags": ["Users"],
         "summary": "Put user by Id",
         "description": "Route for put User by Id",
-        "security": [{
-          "bearerToken": []
-        }],
         "requestBody": {
           "content": {
             "application/json": {
@@ -120,6 +117,9 @@
         "tags": ["Users"],
         "summary": "User by Id",
         "description": "Route for delete User by Id",
+        "security": [{
+          "bearerToken": []
+        }],
         "responses": {
           "200": {
             "description": "User removed successfully"
@@ -165,7 +165,7 @@
         "tags": ["Task"],
         "summary": "Create a task",
         "description": "Create a new task",
-        "requestURL": "http://localhost:3333/api/v1/task",
+        "requestURL": "https://to-do-list-drica.herokuapp.com/api/v1/task",
         "security": [{
           "bearerToken": []
         }],
@@ -227,7 +227,7 @@
         "tags": ["Task"],
         "summary": "Create a task",
         "description": "Create a new task",
-        "requestURL": "http://localhost:3333/api/v1/task",
+        "requestURL": "https://to-do-list-drica.herokuapp.com/api/v1/task",
         "security": [{
           "bearerToken": []
         }],
