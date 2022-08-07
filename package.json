@@ -4,7 +4,6 @@
   "description": "API for to do List",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
     "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files",
     "start": "node build/server.js",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
