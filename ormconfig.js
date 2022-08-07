@@ -1,6 +1,6 @@
 const developmentEnv = {
   type: "postgres",
-  url: process.env.DATABASE_URL,
+  url: HEROKU_POSTGRESQL_AQUA_URL || process.env.DATABASE_URL,
   migrations: ["./src/infra/database/migrations/*.ts"],
   entities: ["./src/infra/entities/*.ts"],
   cli: {
@@ -11,7 +11,7 @@ const developmentEnv = {
 
 const productionEnv = {
   type: "postgres",
-  url: process.env.DATABASE_URL,
+  url: HEROKU_POSTGRESQL_AQUA_URL || process.env.DATABASE_URL,
   migrations: ["./build/infra/database/migrations/*.js"],
   entities: ["./build/infra/entities/*.js"],
   cli: {
