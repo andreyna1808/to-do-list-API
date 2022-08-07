@@ -51,35 +51,87 @@
       },
       "get": {
         "tags": ["Users"],
-        "summary": "View all Users",
-        "description": "View all Users, necessary -> Authorization: Bearer <token>",
+        "summary": "All Users",
+        "description": "Route for list Users",
+        "security": [{
+          "bearerToken": []
+        }],
         "responses": {
           "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": "string",
-                      "email": "string",
-                      "created_at": "Date"
-                    }
+            "description": "Ok"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "User by Id",
+        "description": "Route for list User by Id",
+        "requestURL": "http://localhost:3333/api/v1/users/:id",
+        "responses": {
+          "200": {
+            "description": "Ok"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Users"],
+        "summary": "Put user by Id",
+        "description": "Route for put User by Id",
+        "security": [{
+          "bearerToken": []
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
                   }
+                },
+                "example": {
+                  "name": "Andreyna",
+                  "email": "andreyna@gmail.com",
+                  "password": "12345678"
                 }
               }
             }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "409": {
+            "description": "There is already one user with this email"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Users"],
+        "summary": "User by Id",
+        "description": "Route for delete User by Id",
+        "responses": {
+          "200": {
+            "description": "User removed successfully"
           }
         }
       }
     },
     "/session": {
       "post": {
-        "tags": ["Users"],
-        "summary": "Create a users",
-        "description": "Create a new users",
+        "tags": ["Session"],
+        "summary": "Create a session",
+        "description": "Create a new session - Login",
         "requestBody": {
           "content": {
             "application/json": {
@@ -88,11 +140,14 @@
                 "properties": {
                   "email": {
                     "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
                   }
                 },
                 "example": {
-                  "chat": true,
-                  "username": "andreyna.m.carvalho@gmail.com"
+                  "email": "andreyna@gmail.com",
+                  "password": "12345678"
                 }
               }
             }
@@ -101,56 +156,31 @@
         "responses": {
           "201": {
             "description": "Created"
-          },
-          "200": {
-            "description": "If Email already exists! return data email"
-          }
-        }
-      },
-      "get": {
-        "tags": ["Users"],
-        "summary": "View all Users",
-        "description": "View all Users",
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": "string",
-                      "email": "string",
-                      "created_at": "Date"
-                    }
-                  }
-                }
-              }
-            }
           }
         }
       }
     },
     "/task": {
       "post": {
-        "tags": ["Users"],
-        "summary": "Create a users",
-        "description": "Create a new users",
+        "tags": ["Task"],
+        "summary": "Create a task",
+        "description": "Create a new task",
+        "requestURL": "http://localhost:3333/api/v1/task",
+        "security": [{
+          "bearerToken": []
+        }],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "email": {
+                  "title": {
                     "type": "string"
                   }
                 },
                 "example": {
-                  "chat": true,
-                  "username": "andreyna.m.carvalho@gmail.com"
+                  "title": "Estudar mais sobre relacionamentos"
                 }
               }
             }
@@ -160,33 +190,87 @@
           "201": {
             "description": "Created"
           },
-          "200": {
-            "description": "If Email already exists! return data email"
+          "409": {
+            "description": "There is already one user with this title"
           }
         }
       },
       "get": {
-        "tags": ["Users"],
-        "summary": "View all Users",
-        "description": "View all Users",
+        "tags": ["Task"],
+        "summary": "View all task",
+        "description": "View all task by user",
+        "security": [{
+          "bearerToken": []
+        }],
         "responses": {
           "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": "string",
-                      "email": "string",
-                      "created_at": "Date"
-                    }
+            "description": "Ok"
+          }
+        }
+      }
+    },
+    "/task/{id}": {
+      "get": {
+        "tags": ["Task"],
+        "summary": "View task by id",
+        "description": "View task by id",
+        "security": [{
+          "bearerToken": []
+        }],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Task"],
+        "summary": "Create a task",
+        "description": "Create a new task",
+        "requestURL": "http://localhost:3333/api/v1/task",
+        "security": [{
+          "bearerToken": []
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "completed": {
+                    "type": "boolean"
                   }
+                },
+                "example": {
+                  "title": "Estudar mais sobre relacionamentos",
+                  "completed": true
                 }
               }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "409": {
+            "description": "There is already task with this title"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Task"],
+        "summary": "Delte this task",
+        "description": "Delete Task by ID",
+        "security": [{
+          "bearerToken": []
+        }],
+        "responses": {
+          "200": {
+            "description": "Task removed successfully"
           }
         }
       }
